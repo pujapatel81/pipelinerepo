@@ -18,9 +18,19 @@ pipeline {
         }
         stage ('deploy'){
             steps {
-                sh'''
+                sh '''
                 sudo rm -rf /var/www/html/*
-                sudo cp  *  /var/www/html/
+                sudo cp -rf  *  /var/www/html/
+                sudo systemctl start nginx
+                '''
+            }
+        }
+        stage ('varify') {
+            steps {
+                sh '''
+                echo 'nginx status'
+                sudo systemctl is-active nginx
+                echo 'application output'
                 '''
             }
         }
