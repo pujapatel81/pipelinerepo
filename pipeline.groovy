@@ -1,8 +1,8 @@
 pipeline {
     agent any
     stages {
-        stage {
-            steps ('install nginx and git'){
+        stage ('install nginx and git'){
+            steps {
                 sh '''
                 sudo apt update
                 sudo apt install nginx -y
