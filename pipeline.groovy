@@ -30,7 +30,6 @@ pipeline {
                 sh '''
                 echo 'nginx status'
                 sudo systemctl is-active nginx
-                echo 'application output'
                 '''
             }
         }
